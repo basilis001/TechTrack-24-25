@@ -1,0 +1,109 @@
+const --> constante --> een waarde die je niet meer wilt veranderen
+is het een object of lijst kunnen de elementen geupdate worden, verwijderd worden of er kan wat bijkomen
+
+let --> waarde veranderdt over tijd --> waarde veranderd door input  
+waarde kan aangepast worden nadat deze is gegeven
+
+Use var for function-scoped variables.
+Use let for block-scoped variables that can change.
+Use const for block-scoped variables that won't change.
+
+
+1. map(): Transformatie van elk element
+Doel: map() wordt gebruikt wanneer je elk element in een array wilt transformeren en een nieuwe array van dezelfde lengte wilt retourneren.
+
+Hoe het werkt: Het neemt een functie als argument, past die functie toe op elk element in de array en retourneert een nieuwe array met de getransformeerde elementen.
+
+Map()
+maakt een nieuwe array op basis van de eerdere array-elementen met de aangegeven functie
+The map() method is an iterative method. It calls a provided callbackFn function once for each element in an array and constructs a new array from the results.
+
+// array1 aangekondigd
+const array1 = [1, 4, 9, 16];
+
+// Pass a function to map
+const map1 = array1.map((x) => x * 2);
+
+console.log(map1);
+// Expected output: Array [2, 8, 18, 32]
+
+
+2. filter(): Selectie van elementen op basis van een voorwaarde
+Doel: filter() wordt gebruikt om een nieuwe array te maken die alleen elementen bevat die aan een voorwaarde voldoen (d.w.z. waar de voorwaarde true retourneert).
+
+Hoe het werkt: Het neemt ook een functie als argument, past die functie toe op elk element en retourneert een nieuwe array met alleen de elementen waarvoor de functie true retourneert.
+
+const nieuweArray = array.filter(element => {
+    // retourneer true of false op basis van een voorwaarde
+  });
+
+  const getallen = [1, 2, 3, 4];
+const evenGetallen = getallen.filter(num => num % 2 === 0); 
+console.log(evenGetallen); // [2, 4]
+
+Wat er gebeurt: De filter()-methode controleert elk element in de array en retourneert alleen de getallen die deelbaar zijn door 2 (d.w.z. de even getallen).
+Uitvoer: [2, 4]
+
+
+3. reduce(): Accumulatie van waarden tot een enkel resultaat
+Doel: reduce() wordt gebruikt wanneer je alle elementen in een array wilt samenvoegen of optellen tot een enkele waarde.
+
+Hoe het werkt: Het neemt twee argumenten:
+Een callback-functie die definieert hoe je de elementen combineert.
+Een optionele startwaarde voor de accumulator.
+De callback-functie zelf heeft twee parameters:
+
+accumulator: Het geaccumuleerde resultaat van de vorige stap.
+currentValue: Het huidige element in de array.
+
+const resultaat = array.reduce((accumulator, currentValue) => {
+  // retourneer de bijgewerkte accumulator
+}, startwaarde);
+
+const getallen = [1, 2, 3, 4];
+const som = getallen.reduce((totaal, num) => totaal + num, 0); 
+console.log(som); // 10
+
+Wat er gebeurt: De reduce()-methode telt alle getallen in de array getallen op, beginnend bij 0 (de startwaarde), en voegt elk getal eraan toe.
+Uitvoer: 10
+
+
+
+
+map(): Gebruik het wanneer je elk element wilt wijzigen of transformeren.
+filter(): Gebruik het wanneer je elementen wilt filteren op basis van een voorwaarde.
+reduce(): Gebruik het wanneer je alle elementen wilt samenvoegen tot één enkele waarde (zoals een som, totaal, enz.).
+Deze functies maken het werken met arrays efficiënter en overzichtelijker.
+
+const studenten = [
+    { naam: "Alice", score: 85 },
+    { naam: "Bob", score: 75 },
+    { naam: "Charlie", score: 95 }
+];
+
+// 1. Gebruik map() om de namen van de studenten te krijgen
+const studentenNamen = studenten.map(student => student.naam);
+console.log(studentenNamen); // ["Alice", "Bob", "Charlie"]
+
+// 2. Gebruik filter() om studenten met een score > 80 te selecteren
+const topStudenten = studenten.filter(student => student.score > 80);
+console.log(topStudenten); // [{ naam: "Alice", score: 85 }, { naam: "Charlie", score: 95 }]
+
+// 3. Gebruik reduce() om de totale score te berekenen
+const totaleScore = studenten.reduce((som, student) => som + student.score, 0);
+console.log(totaleScore); // 255
+
+
+filter()
+"Maakt een nieuwe array op basis van de elementen van de oorspronkelijke array, maar alleen met de elementen die voldoen aan de opgegeven voorwaarde. Als de voorwaarde true retourneert voor een element, wordt dit element opgenomen in de nieuwe array."
+
+reduce()
+"Voert een functie uit op elk element van de array, waarbij een enkele waarde wordt opgebouwd. Het combineert de elementen van de oorspronkelijke array tot één resultaat, afhankelijk van de logica die in de functie is gedefinieerd. Dit kan bijvoorbeeld een som, product of een ander geaccumuleerd resultaat zijn."
+
+Voorbeeld in context:
+map(): "Maakt een nieuwe array op basis van de eerdere array-elementen met de aangegeven functie."
+
+filter(): "Maakt een nieuwe array op basis van de elementen van de oorspronkelijke array, maar alleen met de elementen die voldoen aan de opgegeven voorwaarde."
+
+reduce(): "Voert een functie uit op elk element van de array, waarbij een enkele waarde wordt opgebouwd, afhankelijk van de logica die in de functie is gedefinieerd."
+
